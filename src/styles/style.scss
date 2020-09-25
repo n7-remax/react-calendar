@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+$primary-color: #FDD000;
+
+* {
+    font-family: 'Rubik', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+}
+
+.App {
+    background: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 50px;
+    // background-position-x: -150px;
+    height: 100vh;
+}
+
+.container {
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+//Header
+
+.Header {
+    background: white;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 0px;
+    }
+}
+
+.logo {
+    img {
+        width: 165px;
+        height: 50px;
+    }
+}
+
+.navigation {
+    align-items: flex-end;
+    display: flex;
+
+    a {
+        text-decoration: none;
+        position: relative;
+        letter-spacing: 0.56px;
+        color: #3D3D3D;
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:first-child{
+            margin-right: 70px;
+        }
+        &:hover:before {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            background: $primary-color;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            left:calc(50% - 8px);
+        }
+    }
+}
+
+//Home
+
+.Home {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .home-wrapper {
+        max-width: 615px;
+        margin-right: 32px;
+    }
+    .home-heading {
+        margin-bottom: 44px;
+
+        h1 {
+            color: $primary-color;
+            font-size: 64px;
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 3.5px;
+        }
+    }
+    .home-text {
+        p {
+            font-weight: 300;
+            font-size: 30px;
+            text-align: right;
+            letter-spacing: 0.6px;
+            color: #DFDFDF;
+        }
+    }
+}
+
+//Calendar
+
+.Calendar {
+    height: calc(100vh - 154px);
+    width: 700px;
+    background: #272829;
+}
