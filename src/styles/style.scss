@@ -82,7 +82,7 @@ h1,h2,h3,h4,h5,h6,p {
 
     .home-wrapper {
         max-width: 615px;
-        margin-right: 32px;
+        margin: 0 32px;
     }
     .home-heading {
         margin-bottom: 44px;
@@ -200,17 +200,19 @@ h1,h2,h3,h4,h5,h6,p {
     color: black !important;
 }
 .react-calendar__navigation {
-    position: relative;
     margin-bottom: 30px;
+}
+.react-calendar__month-view__days {
+    position: relative;
 
     &::before {
         content: '';
         position: absolute;
-        background-color: rgba(255, 255, 255, 0.43);
-        width: 100%;
+        background-color:  rgba(255, 255, 255, 0.43);
+        width: 90%;
         height: 1px;
-        bottom: -10px;
-        left: 0;
+        top: 0;
+        left: 5%;
     }
 
 }
@@ -297,5 +299,97 @@ h1,h2,h3,h4,h5,h6,p {
                 font-size: 22px;
             }
         }
+    }
+}
+
+
+@media (max-width: 1720px) {
+    .container {
+        margin: 0 20px;
+    }
+}
+@media (max-width: 1120px) {
+    .Calendar {
+        padding: 0 20px;
+    }
+    .react-calendar__navigation {
+        width: 90%;
+    }
+    .Home .home-heading h1 {
+        font-size: 54px;
+    }
+}
+@media (max-width: 768px) {
+    .Calendar {
+        min-width: 300px;
+    }
+    .navigation a {
+        font-size: 25px;
+    }
+    .Home .home-heading h1 {
+        font-size: 40px;
+    }
+    .Home .home-text p {
+        font-size: 20px;
+    }
+    .About-us .container h2 {
+        font-size: 24px;
+    }
+}
+@media (max-width: 563px) {
+    .Calendar {
+        min-width: unset;
+        padding: 0 5px;
+    }
+    .react-calendar__tile {
+        height: 40px;
+    }
+    .container {
+        margin: 0 10px;
+    }
+
+    .navigation a {
+        font-size: 15px;
+        white-space: nowrap;
+
+        &:first-child {
+            margin-right: 30px;
+        }
+    }
+    .Header .container {
+        min-height: 154px;
+    }
+    .logo  {
+        display: flex;
+        align-items: flex-end;
+        margin-right: 10px;
+
+        img {
+        width: 105px;
+        height: 31px;
+        }
+    }
+    .Home .home-heading h1 {
+        font-size: 20px;
+    }
+    .Home .home-text p {
+        font-size: 14px;
+    }
+    .About-us .container h2 {
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+    .About-us .container p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .Home .home-wrapper {
+        margin: 0 15px;
+    }
+
+}
+@media (max-width: 375px) {
+    .react-calendar__tile {
+        height: 30px;
     }
 }
