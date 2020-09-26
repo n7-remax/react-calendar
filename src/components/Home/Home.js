@@ -1,23 +1,60 @@
-import React from 'react';
-import Calendar from './Calendar/Calendar';
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+
+function CalendarInput(props) {
+    return (
+        <div className="calendar-input">
+            <form>
+                <div className="cross" onClick={props.closeForm}>&#128473;</div>
+                <div className="month-input">
+                    <label>Month</label>
+                    <input type="text" defaultValue="month"/>
+                </div>
+                <div className="day-input">
+                    <label>Day</label>
+                    <input type="text" defaultValue="day" />
+                </div>
+            </form>
+        </div>
+    )
+}
 
 function Home() {
+    const [dateState, setDateState] = useState(new Date());
+    const [inputState, setInputState] = useState({
+        showInput: false,
+    });
+
+    const toggleInputHandler = () => {
+        setInputState({ showInput: true })
+        console.log(inputState.showInput)
+    }
     return (
         <div className="Home">
-            
-                <div className="home-wrapper">
-                    <div className="home-heading">
-                        <h1>Choose the day for the meeting</h1>
-                    </div>
-                    <div className="home-text">
-                        <p>We encourage you to book your appointment online.</p>
-                        <p>This will save you time.</p>
-                    </div>
+            {inputState.showInput ? <CalendarInput closeForm={() => setInputState({ showInput: false })} /> : null
+
+            }
+            <div className="home-wrapper">
+                <div className="home-heading">
+                    <h1>Choose the day for the meeting</h1>
                 </div>
-                <div className="calendar-box">
-                    <Calendar />
+                <div className="home-text">
+                    <p>We encourage you to book your appointment online.</p>
+                    <p>This will save you time.</p>
                 </div>
-            
+            </div>
+            <div className="Calendar">
+                <Calendar
+                    locale="en-EN"
+                    next2Label={null}
+                    prev2Label={null}
+                    onChange={setDateState}
+                    value={dateState}
+                    onClickDay={toggleInputHandler}
+                    formatShortWeekday={(locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()]}
+                />
+            </div>
+
         </div>
     );
 }
