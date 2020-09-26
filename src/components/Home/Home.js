@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
+import moment from 'moment'
 
 function CalendarInput(props) {
+    const formatDate = moment(props.date)
     return (
         <div className="calendar-input">
             <form>
                 <div className="cross" onClick={props.closeForm}>&#128473;</div>
                 <div className="month-input">
                     <label>Month</label>
-                    <input type="text" defaultValue="month"/>
+                    <input type="text" defaultValue={formatDate.format('MMMM')} />
                 </div>
                 <div className="day-input">
                     <label>Day</label>
-                    <input type="text" defaultValue="day" />
+                    <input type="text" defaultValue={formatDate.format('Do dddd')} />
                 </div>
             </form>
         </div>
@@ -20,19 +22,20 @@ function CalendarInput(props) {
 }
 
 function Home() {
-    const [dateState, setDateState] = useState(new Date());
+    const [dateState, setDateState] = useState((new Date()));
     const [inputState, setInputState] = useState({
         showInput: false,
     });
 
     const toggleInputHandler = () => {
         setInputState({ showInput: true })
-        console.log(inputState.showInput)
     }
+    console.log(dateState)
     return (
         <div className="Home">
-            {inputState.showInput ? <CalendarInput closeForm={() => setInputState({ showInput: false })} /> : null
-
+            {
+                inputState.showInput ? <CalendarInput date={dateState} closeForm={() => setInputState({ showInput: false })} />
+                    : null
             }
             <div className="home-wrapper">
                 <div className="home-heading">
@@ -48,9 +51,8 @@ function Home() {
                     locale="en-EN"
                     next2Label={null}
                     prev2Label={null}
-                    onChange={setDateState}
+                    onChange={(date) => { setDateState(date); toggleInputHandler() }}
                     value={dateState}
-                    onClickDay={toggleInputHandler}
                     formatShortWeekday={(locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()]}
                 />
             </div>

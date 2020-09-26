@@ -250,19 +250,20 @@ h1,h2,h3,h4,h5,h6,p {
 // Form styles
 
 .calendar-input {
+    justify-content: center;
+    display: flex;
     background: rgba(39, 40, 41, 0.85);
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 154px);
     z-index: 5;
+    align-items: center;
 
     form {
-        position: absolute;
+        position: relative;
         display: flex;
         padding: 25px;
         background: white;
-        top: 50%;
-        left: 35%;
 
         .cross {
             background-color: $primary-color;
@@ -340,6 +341,13 @@ h1,h2,h3,h4,h5,h6,p {
     .Calendar {
         min-width: unset;
         padding: 0 5px;
+    }
+    .calendar-input form {
+        flex-direction: column;
+    }
+    .calendar-input form .month-input {
+        margin-bottom: 20px;
+        margin-right: 0px;
     }
     .react-calendar__tile {
         height: 40px;
