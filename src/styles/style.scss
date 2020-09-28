@@ -249,7 +249,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 // Form styles
 
-.calendar-input {
+.calendar-overlay {
     justify-content: center;
     display: flex;
     background: rgba(39, 40, 41, 0.85);
@@ -342,10 +342,10 @@ h1,h2,h3,h4,h5,h6,p {
         min-width: unset;
         padding: 0 5px;
     }
-    .calendar-input form {
+    .calendar-overlay form {
         flex-direction: column;
     }
-    .calendar-input form .month-input {
+    .calendar-overlay form .month-input {
         margin-bottom: 20px;
         margin-right: 0px;
     }
@@ -399,5 +399,10 @@ h1,h2,h3,h4,h5,h6,p {
 @media (max-width: 375px) {
     .react-calendar__tile {
         height: 30px;
+    }
+    .react-calendar__tile--active:before {
+        bottom: 4px;
+        width: 3px;
+        height: 3px;
     }
 }

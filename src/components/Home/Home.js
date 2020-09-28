@@ -5,7 +5,7 @@ import moment from 'moment'
 function CalendarInput(props) {
     const formatDate = moment(props.date)
     return (
-        <div className="calendar-input">
+        <div className="calendar-overlay">
             <form>
                 <div className="cross" onClick={props.closeForm}>&#128473;</div>
                 <div className="month-input">
@@ -30,7 +30,6 @@ function Home() {
     const toggleInputHandler = () => {
         setInputState({ showInput: true })
     }
-    console.log(dateState)
     return (
         <div className="Home">
             {
